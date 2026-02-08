@@ -1,0 +1,16 @@
+## Objective of Experiment ## 
+1.	WAP to visualize the Perceptron Learning Algorithm using numpy and matplotlib/seaborn in Python. Evaluate performance of a single perceptron for NAND and XOR truth tables as input dataset. 
+ 
+## Prompt for XOR ##
+A single-layer perceptron was created to learn the XOR problem using NumPy and Matplotlib. The weights and bias were first set to zero and the model was trained for 20 epochs using a step activation function. For each epoch, the predicted output, actual output, error, updated weights, total error, and accuracy were calculated. Graphs were shown after each epoch with a time delay, displaying the actual points, predicted points, and the decision boundary. The graphs were adjusted to keep proper scaling, fixed axes, and a clear view of how the decision boundary changes in each epoch
+
+
+
+## Prompt of NAND ##
+Write a Python program to show how a single-layer perceptron work on NAND logic gate.
+Use NumPy to store the input values and outputs of the NAND gate. Start with weights and bias set to zero and use a small learning rate.
+Use a step function to convert the calculated value into 0 or 1. Train the perceptron for a few epochs and update the weights and bias using the error.
+After each training step, show the input, target value, predicted output, error, and updated weights and bias.
+Use Matplotlib to draw the input points and the decision line so that the learning process can be seen clearly after each epoch.
+Finally, show graphs for total error and accuracy to understand how the model improves over time.
+
