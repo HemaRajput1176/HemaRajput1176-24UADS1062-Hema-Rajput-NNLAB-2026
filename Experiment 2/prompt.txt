@@ -1,0 +1,11 @@
+ ## Objective of Experiment ## 
+ 2.	WAP to implement a multi-layer perceptron (MLP) network with one hidden layer using numpy in Python. 
+ Demonstrate that it can learn the XOR Boolean function.  
+
+ ## Prompt ##
+ write a program in python  using NumPy that trains a Multi-layer perceptron to solve the XOR problem 
+ The network should have input neurons hidden neurons and  output neuron with a sigmoid activation function 
+ Include forward propagation loss calculation using mean squared error accuracy computation and weight updates over  some epochs Also visualize predictions 
+ for each epoch plot loss over epochs create a 3D animated decision surface using Matplotlib to show how the network learns over time 
+
+ 
