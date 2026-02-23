@@ -1,0 +1,6 @@
+I want to write a python program to create three layer neural network only using tensor flow library not keras
+I want to classify the MNIST handwritten digital dataset as give in above object
+I want it should first load and then prepare the dataset then it initialize the weight and the bias and
+I want feed- forward process and also want to calculate backpropagation to see
+my weight update during the training and train my model to some epoch and give me accuary on that test data and 
+I also want to visulize so plot graph to show training performance
