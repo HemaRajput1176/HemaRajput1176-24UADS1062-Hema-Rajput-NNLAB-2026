@@ -1,0 +1,4 @@
+Write a Python program using TensorFlow to test the performance of a three-layer neural network on the MNIST dataset.
+First load the dataset and normalize the images Then create a neural network model with one input layer two hidden layers and one output layer.
+The program should allow changing different parameters like activation functions (ReLU, Sigmoid, Tanh), number of neurons in hidden layers learning rate batch size and number of epochs Train the model using different combinations of these parameters and check the accuracy for each case.
+Store the results and print them so we can compare which settings give better performance Also plot graphs of training loss and validation loss using Matplotlib
