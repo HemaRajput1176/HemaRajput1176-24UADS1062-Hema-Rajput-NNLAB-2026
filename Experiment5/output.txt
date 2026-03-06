@@ -1,0 +1,130 @@
+Training Data Shape: (60000, 28, 28, 1)
+Testing Data Shape: (10000, 28, 28, 1)
+
+-----------------------------------
+Filter Size: 3  Batch Size: 32  Optimizer: adam
+-----------------------------------
+Epoch 1/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 26s 16ms/step - accuracy: 0.7782 - loss: 0.7176 - val_accuracy: 0.8602 - val_loss: 0.4743
+Epoch 2/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 24s 16ms/step - accuracy: 0.8481 - loss: 0.5093 - val_accuracy: 0.8706 - val_loss: 0.4296
+Epoch 3/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 25s 16ms/step - accuracy: 0.8615 - loss: 0.4639 - val_accuracy: 0.8808 - val_loss: 0.3999
+Epoch 4/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 24s 16ms/step - accuracy: 0.8732 - loss: 0.4342 - val_accuracy: 0.8896 - val_loss: 0.3819
+Epoch 5/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 24s 16ms/step - accuracy: 0.8817 - loss: 0.4160 - val_accuracy: 0.8857 - val_loss: 0.3864
+313/313 ━━━━━━━━━━━━━━━━━━━━ 2s 7ms/step - accuracy: 0.8817 - loss: 0.4032
+Test Accuracy: 0.8816999793052673
+
+-----------------------------------
+Filter Size: 3  Batch Size: 32  Optimizer: sgd
+-----------------------------------
+Epoch 1/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 24s 15ms/step - accuracy: 0.6043 - loss: 1.3393 - val_accuracy: 0.7638 - val_loss: 0.8692
+Epoch 2/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 22s 15ms/step - accuracy: 0.7496 - loss: 0.8979 - val_accuracy: 0.8002 - val_loss: 0.7614
+Epoch 3/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 23s 15ms/step - accuracy: 0.7817 - loss: 0.8014 - val_accuracy: 0.8153 - val_loss: 0.7060
+Epoch 4/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 23s 15ms/step - accuracy: 0.7989 - loss: 0.7453 - val_accuracy: 0.8278 - val_loss: 0.6639
+Epoch 5/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 21s 14ms/step - accuracy: 0.8136 - loss: 0.7009 - val_accuracy: 0.8344 - val_loss: 0.6306
+313/313 ━━━━━━━━━━━━━━━━━━━━ 3s 7ms/step - accuracy: 0.8258 - loss: 0.6481
+Test Accuracy: 0.8258000016212463
+
+-----------------------------------
+Filter Size: 3  Batch Size: 64  Optimizer: adam
+-----------------------------------
+Epoch 1/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 19s 23ms/step - accuracy: 0.7581 - loss: 0.7756 - val_accuracy: 0.8513 - val_loss: 0.4900
+Epoch 2/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 18s 24ms/step - accuracy: 0.8382 - loss: 0.5363 - val_accuracy: 0.8642 - val_loss: 0.4426
+Epoch 3/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 18s 24ms/step - accuracy: 0.8553 - loss: 0.4765 - val_accuracy: 0.8785 - val_loss: 0.3967
+Epoch 4/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 18s 24ms/step - accuracy: 0.8669 - loss: 0.4435 - val_accuracy: 0.8705 - val_loss: 0.4136
+Epoch 5/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 17s 23ms/step - accuracy: 0.8726 - loss: 0.4236 - val_accuracy: 0.8810 - val_loss: 0.3867
+313/313 ━━━━━━━━━━━━━━━━━━━━ 2s 7ms/step - accuracy: 0.8788 - loss: 0.4013
+Test Accuracy: 0.8787999749183655
+
+-----------------------------------
+Filter Size: 3  Batch Size: 64  Optimizer: sgd
+-----------------------------------
+Epoch 1/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 18s 23ms/step - accuracy: 0.5528 - loss: 1.4976 - val_accuracy: 0.6982 - val_loss: 1.0125
+Epoch 2/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 18s 24ms/step - accuracy: 0.7111 - loss: 1.0194 - val_accuracy: 0.7656 - val_loss: 0.8595
+Epoch 3/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 18s 24ms/step - accuracy: 0.7449 - loss: 0.9137 - val_accuracy: 0.7870 - val_loss: 0.7911
+Epoch 4/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 17s 23ms/step - accuracy: 0.7647 - loss: 0.8524 - val_accuracy: 0.7962 - val_loss: 0.7597
+Epoch 5/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 18s 23ms/step - accuracy: 0.7807 - loss: 0.8083 - val_accuracy: 0.8105 - val_loss: 0.7228
+313/313 ━━━━━━━━━━━━━━━━━━━━ 2s 7ms/step - accuracy: 0.8023 - loss: 0.7396
+Test Accuracy: 0.802299976348877
+
+-----------------------------------
+Filter Size: 5  Batch Size: 32  Optimizer: adam
+-----------------------------------
+Epoch 1/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 28s 17ms/step - accuracy: 0.7850 - loss: 0.6959 - val_accuracy: 0.8602 - val_loss: 0.4510
+Epoch 2/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 26s 17ms/step - accuracy: 0.8603 - loss: 0.4630 - val_accuracy: 0.8844 - val_loss: 0.3828
+Epoch 3/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 25s 16ms/step - accuracy: 0.8774 - loss: 0.4145 - val_accuracy: 0.8932 - val_loss: 0.3651
+Epoch 4/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 24s 16ms/step - accuracy: 0.8865 - loss: 0.3866 - val_accuracy: 0.8949 - val_loss: 0.3573
+Epoch 5/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 25s 17ms/step - accuracy: 0.8936 - loss: 0.3657 - val_accuracy: 0.9003 - val_loss: 0.3342
+313/313 ━━━━━━━━━━━━━━━━━━━━ 2s 6ms/step - accuracy: 0.8986 - loss: 0.3479
+Test Accuracy: 0.8985999822616577
+
+-----------------------------------
+Filter Size: 5  Batch Size: 32  Optimizer: sgd
+-----------------------------------
+Epoch 1/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 26s 17ms/step - accuracy: 0.6148 - loss: 1.2934 - val_accuracy: 0.7634 - val_loss: 0.8335
+Epoch 2/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 23s 15ms/step - accuracy: 0.7569 - loss: 0.8688 - val_accuracy: 0.8012 - val_loss: 0.7421
+Epoch 3/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 25s 16ms/step - accuracy: 0.7901 - loss: 0.7779 - val_accuracy: 0.8236 - val_loss: 0.6753
+Epoch 4/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 24s 16ms/step - accuracy: 0.8076 - loss: 0.7242 - val_accuracy: 0.8382 - val_loss: 0.6328
+Epoch 5/5
+1500/1500 ━━━━━━━━━━━━━━━━━━━━ 24s 16ms/step - accuracy: 0.8206 - loss: 0.6824 - val_accuracy: 0.8447 - val_loss: 0.6067
+313/313 ━━━━━━━━━━━━━━━━━━━━ 3s 8ms/step - accuracy: 0.8415 - loss: 0.6222
+Test Accuracy: 0.8414999842643738
+
+-----------------------------------
+Filter Size: 5  Batch Size: 64  Optimizer: adam
+-----------------------------------
+Epoch 1/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 21s 25ms/step - accuracy: 0.7753 - loss: 0.7398 - val_accuracy: 0.8659 - val_loss: 0.4637
+Epoch 2/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 19s 26ms/step - accuracy: 0.8560 - loss: 0.4831 - val_accuracy: 0.8777 - val_loss: 0.3994
+Epoch 3/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 19s 25ms/step - accuracy: 0.8730 - loss: 0.4200 - val_accuracy: 0.8899 - val_loss: 0.3663
+Epoch 4/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 19s 25ms/step - accuracy: 0.8840 - loss: 0.3878 - val_accuracy: 0.8943 - val_loss: 0.3474
+Epoch 5/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 20s 26ms/step - accuracy: 0.8918 - loss: 0.3660 - val_accuracy: 0.8898 - val_loss: 0.3561
+313/313 ━━━━━━━━━━━━━━━━━━━━ 3s 8ms/step - accuracy: 0.8841 - loss: 0.3670
+Test Accuracy: 0.8841000199317932
+
+-----------------------------------
+Filter Size: 5  Batch Size: 64  Optimizer: sgd
+-----------------------------------
+Epoch 1/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 20s 25ms/step - accuracy: 0.5464 - loss: 1.5139 - val_accuracy: 0.7483 - val_loss: 0.9277
+Epoch 2/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 22s 29ms/step - accuracy: 0.7287 - loss: 0.9633 - val_accuracy: 0.7812 - val_loss: 0.8129
+Epoch 3/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 20s 27ms/step - accuracy: 0.7640 - loss: 0.8604 - val_accuracy: 0.8023 - val_loss: 0.7448
+Epoch 4/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 22s 29ms/step - accuracy: 0.7818 - loss: 0.8003 - val_accuracy: 0.8200 - val_loss: 0.7035
+Epoch 5/5
+750/750 ━━━━━━━━━━━━━━━━━━━━ 20s 27ms/step - accuracy: 0.7984 - loss: 0.7621 - val_accuracy: 0.8206 - val_loss: 0.6852
+313/313 ━━━━━━━━━━━━━━━━━━━━ 3s 8ms/step - accuracy: 0.8128 - loss: 0.7046
+Test Accuracy: 0.8127999901771545
