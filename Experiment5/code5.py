@@ -1,5 +1,7 @@
 import numpy as np
 import tensorflow as tf
+import matplotlib.pyplot as plt
+
 from tensorflow.keras.datasets import fashion_mnist
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Input, Conv2D, MaxPooling2D, Flatten, Dense, Dropout
@@ -78,3 +80,37 @@ for f in filter_sizes:
             loss, accuracy = model.evaluate(x_test,y_test)
 
             print("Test Accuracy:",accuracy)
+
+
+            # =========================
+            # Graph 1 : LOSS vs EPOCH
+            # =========================
+
+            plt.figure()
+
+            plt.plot(history.history['loss'], label="Training Loss")
+            plt.plot(history.history['val_loss'], label="Validation Loss")
+
+            plt.title(f"Loss Graph (Filter {f}, Batch {b}, Opt {opt})")
+            plt.xlabel("Epoch")
+            plt.ylabel("Loss")
+
+            plt.legend()
+            plt.show()
+
+
+            # =========================
+            # Graph 2 : ACCURACY vs EPOCH
+            # =========================
+
+            plt.figure()
+
+            plt.plot(history.history['accuracy'], label="Training Accuracy")
+            plt.plot(history.history['val_accuracy'], label="Validation Accuracy")
+
+            plt.title(f"Accuracy Graph (Filter {f}, Batch {b}, Opt {opt})")
+            plt.xlabel("Epoch")
+            plt.ylabel("Accuracy")
+
+            plt.legend()
+            plt.show()
