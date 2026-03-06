@@ -1,0 +1,7 @@
+Write a Python program using TensorFlow and Keras to build a Convolutional Neural Network (CNN) for classifying the Fashion MNIST Dataset.
+The program should first import all the required libraries and load the Fashion MNIST dataset.
+Normalize the image data and reshape it so it can be used in a CNN model.
+Create a CNN model using the Sequential API with layers like Conv2D, MaxPooling2D, Flatten, Dense, Dropout, and L2 regularization.
+Train the model using different filter sizes, batch sizes, and optimizers (Adam and SGD).
+Run the training for 5 epochs for each experiment.
+After training, evaluate the model on the test dataset and print the test accuracy for each experiment. and plot graph for visualize 
