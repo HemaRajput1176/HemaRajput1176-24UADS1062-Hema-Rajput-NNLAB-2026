@@ -1,0 +1,221 @@
+Sun Mar 22 09:13:20 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |
+| N/A   43C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+
+  Device  : cuda
+  GPU     : Tesla T4
+  Memory  : 15.6 GB
+
+  GPU ready — proceed to Cell 2
+  PyTorch : 2.10.0+cu128
+
+Mounted at /content/drive
+Drive mounted
+
+Searching for dataset zip...
+  Using: /content/drive/MyDrive/leaf_small.zip  (5.4 MB)
+  Extracting...
+  Extracted!
+
+  Dataset found!
+  Path    : /content/Leave-Small
+  Species : ['Mango', 'Neem', 'Jamun', 'gulmohar', 'Madagascar(Sadabhar)', 'banana', 'blackboard', 'Ashok', 'paper flower', 'Lily(Nagdamani)']
+  Images  : 1060
+
+  Proceed to Cell 3
+
+Device: cuda
+
+Config ready
+  Species (10) : ['Mango', 'Neem', 'Jamun', 'gulmohar', 'Madagascar(Sadabhar)', 'banana', 'blackboard', 'Ashok', 'paper flower', 'Lily(Nagdamani)']
+  Raw images   : 1060
+  Target total : 4000 images after augmentation
+  Batch size   : 64
+  SSL epochs   : 100
+  Device       : cuda
+
+=======================================================
+  STEP 1 — Load Raw Dataset
+=======================================================
+  Ashok                           100 images
+  Jamun                           101 images
+  Lily(Nagdamani)                 120 images
+  Madagascar(Sadabhar)            120 images
+  Mango                           100 images
+  Neem                            108 images
+  banana                          100 images
+  blackboard                      101 images
+  gulmohar                        110 images
+  paper flower                    100 images
+
+  Total species : 10
+  Total images  : 1060
+
+=======================================================
+  STEP 2 — Augment Dataset
+  Target: 4000 total images
+=======================================================
+  Species        : 10
+  Per species    : 400 images
+  Augments/image : 2
+  Expected total : ~4,000 images
+
+  Species                          Orig     Total
+  ------------------------------------------------
+  Ashok                             100       300
+  Jamun                             101       303
+  LilyNagdamani                     120       360
+  MadagascarSadabhar                120       360
+  Mango                             100       300
+  Neem                              108       324
+  banana                            100       300
+  blackboard                        101       303
+  gulmohar                          110       330
+  paper_flower                      100       300
+  ------------------------------------------------
+  TOTAL                            1060      3180
+
+  Augmentation complete (3,180 images)
+
+Models defined
+  Encoder output    : 512-dim
+  Projection output : 128-dim
+  Parameters        : 11.50M
+  Loss type         : NT-Xent contrastive (NOT pixel reconstruction)
+
+SSL Dataset   : 3,180 images
+  Batches/epoch : 49
+  Labels used   : NONE — self-supervised
+  Loss          : NT-Xent contrastive (NOT pixel reconstruction)
+
+  Starting SSL Pretraining — 100 epochs on cuda
+
+  Epoch    Loss         LR             Time
+  ----------------------------------------------
+  1        4.2351       0.000300       32s
+  10       3.4566       0.000293       30s
+  20       3.3267       0.000271       29s
+  30       3.2729       0.000238       29s
+  40       3.2319       0.000196       29s
+  50       3.1996       0.000150       30s
+  60       3.1687       0.000104       29s
+  70       3.1511       0.000062       29s
+  80       3.1229       0.000029       29s
+  90       3.1086       0.000007       29s
+  100      3.1096       0.000000       28s
+
+  Pretraining complete | Best loss: 3.1022
+
+Train:2,226  Val:477  Test:477
+  Classes (10): ['Ashok', 'Jamun', 'LilyNagdamani', 'MadagascarSadabhar', 'Mango', 'Neem', 'banana', 'blackboard', 'gulmohar', 'paper_flower']
+
+  SSL encoder loaded | Trainable: 134,410 (encoder frozen)
+
+  Epoch    Tr Loss    Tr Acc     Val Loss   Val Acc
+  ----------------------------------------------------
+  1        1.0713     0.781      0.8762     0.847
+  5        0.7885     0.889      0.7569     0.897
+  10       0.7431     0.908      0.7299     0.916
+  15       0.7066     0.928      0.7157     0.910
+  20       0.6946     0.930      0.7100     0.918
+  25       0.6680     0.945      0.6961     0.918
+  30       0.6662     0.951      0.6935     0.918
+
+  Fine-tuning done | Best val: 0.9350 (93.50%)
+
+Experiment A — Few-Shot Transfer
+
+  Shots      SSL          Scratch      Gain
+  --------------------------------------------
+  1          0.586        0.119        +0.467 ✅
+  5          0.739        0.336        +0.403 ✅
+  10         0.769        0.379        +0.390 ✅
+  20         0.852        0.484        +0.368 ✅
+
+
+Experiment B — Unseen Species Transfer
+
+  Seen   (8) : ['LilyNagdamani', 'MadagascarSadabhar', 'Mango', 'Neem', 'banana', 'blackboard', 'gulmohar', 'paper_flower']
+  Unseen (2)  : ['Jamun', 'Ashok']
+
+  SSL      : 0.9934 (99.34%)
+  Scratch  : 0.9934 (99.34%)
+  Gain     : +0.0000
+
+              precision    recall  f1-score   support
+
+       Jamun      1.000     0.987     0.993       152
+       Ashok      0.987     1.000     0.993       150
+
+    accuracy                          0.993       302
+   macro avg      0.993     0.993     0.993       302
+weighted avg      0.993     0.993     0.993       302
+
+
+  Transfer learning complete
+
+Variables restored:
+  grand_total   : 3,180
+  all_img_paths : 1,060
+  CLASS_NAMES   : ['Ashok', 'Jamun', 'LilyNagdamani', 'MadagascarSadabhar', 'Mango', 'Neem', 'banana', 'blackboard', 'gulmohar', 'paper_flower']
+  NUM_CLASSES   : 10
+
+Files included:
+  outputs/exp_a_fewshot.png                                51.1 KB
+  outputs/raw_distribution.png                             70.2 KB
+  outputs/ssl_loss.png                                     29.7 KB
+  outputs/exp_b_unseen.png                                 29.5 KB
+  outputs/sample_images.png                              1751.1 KB
+  checkpoints/finetuned.pth                                 43.2 MB
+  checkpoints/ssl_encoder.pth                               44.0 MB
+
+Downloading...
+  Download complete!
+
+Testing Data Output
+Loading trained model...
+Model loaded
+Device : cuda
+Species : ['Ashok', 'Jamun', 'LilyNagdamani', 'MadagascarSadabhar', 'Mango', 'Neem', 'banana', 'blackboard', 'gulmohar', 'paper_flower']
+
+=============================================
+Upload your leaf image below
+=============================================
+Supported formats: JPG, JPEG, PNG
+Click "Choose Files" button...
+
+[Choose Files] my_leaf.jpg
+my_leaf.jpg(image/jpeg) - 45312 bytes, last modified: 3/22/2026
+100% ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 45.3 KB / 45.3 KB
+
+Predicting: my_leaf.jpg
+
+=============================================
+Predicted Species : Neem
+Confidence : 94.32%
+Top 5 Predictions:
+Rank Species Confidence
+---------------------------------------------
+1 Neem 94.32% <-- predicted
+2 Mango 3.11%
+3 Ashok 1.24%
+4 banana 0.87%
+5 gulmohar 0.46%
+=============================================
