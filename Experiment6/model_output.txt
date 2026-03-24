@@ -1,0 +1,67 @@
+PyTorch Version : 2.10.0+cpu
+NumPy Version   : 2.0.2
+Device in use   : cpu
+
+Hyperparameters set 
+
+Series shape: (1000,)
+Min: -1.507, Max: 1.466
+
+Total sequences : 980
+X shape         : (980, 20, 1)  → (samples, seq_len, input_size)
+y shape         : (980,)  → (samples,)
+
+Example → X[0][:5]: [0.04967142 0.0364761  0.16529435 0.30289245 0.17700009]  →  y[0]: 1.0512
+
+Train samples : 784  |  Test samples : 196
+X_train shape : torch.Size([784, 20, 1])  → (samples, seq_len, input_size)
+y_train shape : torch.Size([784, 1])
+Train batches : 25  |  Test batches : 7
+
+RNNPredictor(
+  (rnn): RNN(1, 64, num_layers=2, batch_first=True, dropout=0.2)
+  (fc): Linear(in_features=64, out_features=1, bias=True)
+)
+
+Trainable Parameters: 12,673
+
+Loss      : nn.MSELoss()
+Optimizer : Adam  (lr=0.001)
+Scheduler : ReduceLROnPlateau  (patience=10, factor=0.5)
+
+ Epoch     Train MSE      Test MSE          LR
+--------------------------------------------------
+     1      0.217045      0.041943    0.001000
+    10      0.016944      0.014376    0.001000
+    20      0.014973      0.012965    0.001000
+ LR reduced: 0.001000 → 0.000500
+    30      0.014933      0.013165    0.000500
+    40      0.014408      0.012259    0.000500
+    50      0.014513      0.011998    0.000500
+ LR reduced: 0.000500 → 0.000250
+    60      0.013749      0.011868    0.000250
+    70      0.012996      0.011907    0.000250
+    80      0.014654      0.012020    0.000250
+ LR reduced: 0.000250 → 0.000125
+    90      0.012806      0.011030    0.000125
+   100      0.012620      0.010970    0.000125
+
+ Training Complete!
+
+ ============================================
+      EVALUATION RESULTS  (Test Set)
+============================================
+  MSE  (Mean Squared Error)        : 0.010970
+  RMSE (Root Mean Squared Error)   : 0.104737
+  MAE  (Mean Absolute Error)       : 0.084701
+  R²   (Coefficient of Determin.)  : 0.976371
+============================================
+
+Model saved → rnn_timeseries.pth 
+Model reloaded successfully 
+
+ Sample Prediction Test
+-----------------------------------
+Predicted Value : 1.1700
+Actual Value    : 1.1265
+Absolute Error  : 0.0434
