@@ -1,0 +1,3 @@
+Create a simple PyTorch RNN project for time series prediction
+Include data generation, sequence creation, model training, evaluation, graphs, and model saving
+Write the code step-by-step in notebook cells, make it easy to understand, and ensure it runs correctly in Google Colab without errors.
