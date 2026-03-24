@@ -1,0 +1,6 @@
+I made a time-series dataset using sine waves and added a little noise so it looks like real data THEN I changed the data into sequences, where the model uses past values to guess the next value
+After that I created an RNN model because it works well for sequence data I trained the model on some data and tested it on new data to see how well it predicts
+To improve the model I used MSE loss and Adam optimizer I also used a learning rate scheduler to make training smoother
+Then I checked the performance using metrics like MSE RMSE MAE and R² score
+I also made graphs like the loss curve and actual vs predicted values to see how well the model is working
+Finally I saved the model and loaded it again to test predictions.
