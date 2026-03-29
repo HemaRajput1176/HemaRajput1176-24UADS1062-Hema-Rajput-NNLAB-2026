@@ -1,0 +1,569 @@
+All libraries installed successfully!
+PyTorch version: 2.10.0+cu128
+Torchvision version: 0.25.0+cu128
+GPU Available: True
+
+Kaggle setup done securely!
+
+Dataset URL: https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+License(s): other
+Downloading chest-xray-pneumonia.zip to /content
+100% 2.29G/2.29G [00:15<00:00, 159MB/s]
+
+ Dataset downloaded and extracted!
+chest_xray/
+  __MACOSX/
+    chest_xray/
+      → 3 images
+      train/
+        PNEUMONIA/
+        NORMAL/
+      test/
+        PNEUMONIA/
+        NORMAL/
+      val/
+        PNEUMONIA/
+        NORMAL/
+  train/
+    PNEUMONIA/
+      → 3875 images
+    NORMAL/
+      → 1341 images
+  chest_xray/
+    train/
+      → 1 images
+      PNEUMONIA/
+      NORMAL/
+    test/
+      → 1 images
+      PNEUMONIA/
+      NORMAL/
+    val/
+      → 1 images
+      PNEUMONIA/
+      NORMAL/
+  test/
+    PNEUMONIA/
+      → 390 images
+    NORMAL/
+      → 234 images
+  val/
+    PNEUMONIA/
+      → 8 images
+    NORMAL/
+      → 8 images
+
+ Dataset loaded!
+  Train samples : 5216
+  Val samples   : 16
+  Test samples  : 624
+  Classes       : ['NORMAL', 'PNEUMONIA']
+  Train → NORMAL: 1341, PNEUMONIA: 3875
+  Val → NORMAL: 8, PNEUMONIA: 8
+  Test → NORMAL: 234, PNEUMONIA: 390
+
+Using device: cuda
+Downloading: "https://download.pytorch.org/models/resnet50-0676ba61.pth" to /root/.cache/torch/hub/checkpoints/resnet50-0676ba61.pth
+100%|██████████| 97.8M/97.8M [00:00<00:00, 173MB/s]
+✅ Pretrained ResNet50 loaded and modified for medical classification!
+  Total parameters    : 24,624,322
+  Trainable parameters: 1,116,290
+  Frozen parameters   : 23,508,032
+  Output classes      : NORMAL (0), PNEUMONIA (1)
+
+  Model Head Architecture:
+Sequential(
+  (0): Linear(in_features=2048, out_features=512, bias=True)
+  (1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (2): ReLU()
+  (3): Dropout(p=0.4, inplace=False)
+  (4): Linear(in_features=512, out_features=128, bias=True)
+  (5): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (6): ReLU()
+  (7): Dropout(p=0.3, inplace=False)
+  (8): Linear(in_features=128, out_features=2, bias=True)
+)
+
+ Loss function, Optimizer and Scheduler ready!
+  Criterion  : CrossEntropyLoss with class weights
+  Weight NORMAL    : 1.9448
+  Weight PNEUMONIA : 0.6730
+  Optimizer  : Adam (lr=1e-3, weight_decay=1e-4)
+  Scheduler  : ReduceLROnPlateau (patience=2, factor=0.5)
+
+
+Dataset URL: https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+License(s): other
+Downloading chest-xray-pneumonia.zip to /content
+100% 2.29G/2.29G [00:19<00:00, 129MB/s]
+
+ Zip files found:
+-rw-r--r-- 1 root root 2.3G Sep 28  2019 chest-xray-pneumonia.zip
+
+ Folder structure after extraction:
+./
+      2026.03.23/
+        → 6 images
+  chest_xray/
+    __MACOSX/
+      chest_xray/
+        → 3 images
+        train/
+        test/
+        val/
+    train/
+      PNEUMONIA/
+        → 3875 images
+      NORMAL/
+        → 1341 images
+    chest_xray/
+      train/
+        → 1 images
+        PNEUMONIA/
+        NORMAL/
+      test/
+        → 1 images
+        PNEUMONIA/
+        NORMAL/
+      val/
+        → 1 images
+        PNEUMONIA/
+        NORMAL/
+    test/
+      PNEUMONIA/
+        → 390 images
+      NORMAL/
+        → 234 images
+    val/
+      PNEUMONIA/
+        → 8 images
+      NORMAL/
+        → 8 images
+
+
+ Using device: cuda
+   Train : 5216 | Val : 16 | Test : 624
+   Classes: ['NORMAL', 'PNEUMONIA']
+ Model ready!
+
+ Starting Training...
+
+Epoch   Train Loss    Train Acc     Val Loss      Val Acc     Time
+----------------------------------------------------------------------
+1       0.2064        91.28         0.4969        81.25       87.5s
+          Best model saved! (val_loss: 0.4969)
+2       0.1658        93.58         0.3439        87.50       85.6s
+          Best model saved! (val_loss: 0.3439)
+3       0.1547        93.81         0.9281        68.75       86.4s
+4       0.1417        94.67         0.5838        87.50       86.4s
+5       0.1411        94.40         0.3848        87.50       85.3s
+6       0.1386        94.42         0.2993        93.75       86.4s
+          Best model saved! (val_loss: 0.2993)
+7       0.1282        94.96         0.3228        81.25       86.3s
+8       0.1162        95.42         0.5623        81.25       84.1s
+
+ Early stopping triggered at epoch 8
+
+ Training Complete! Best Val Loss: 0.2993
+
+
+=======================================================
+       MEDICAL CLASSIFICATION REPORT
+=======================================================
+  Test Samples          : 624
+  NORMAL  (0)           : 234
+  PNEUMONIA (1)         : 390
+-------------------------------------------------------
+  Accuracy              : 89.42%
+  Precision             : 87.67%
+  Recall (Sensitivity)  : 96.67%
+  Specificity           : 77.35%
+  F1 Score              : 91.95%
+  AUC-ROC               : 0.9587
+-------------------------------------------------------
+  TP (Pneumonia correctly detected) : 377
+  TN (Normal correctly detected)    : 181
+  FP (Normal misclassified)         : 53
+  FN (Pneumonia missed)             : 13
+=======================================================
+
+Detailed Classification Report:
+              precision    recall  f1-score   support
+
+      NORMAL       0.93      0.77      0.85       234
+   PNEUMONIA       0.88      0.97      0.92       390
+
+    accuracy                           0.89       624
+   macro avg       0.90      0.87      0.88       624
+weighted avg       0.90      0.89      0.89       624
+
+
+
+Test evaluation complete!
+
+
+=======================================================
+        FINAL MODEL SUMMARY
+=======================================================
+  Architecture  : ResNet50 (Pretrained ImageNet)
+  Training      : Head-only fine-tuning
+  Epochs Ran    : 8
+  Best Val Loss : 0.2993
+  Best Val Acc  : 93.75%
+  Test Accuracy : 89.42%
+  Sensitivity   : 96.67%  (Pneumonia detection)
+  Specificity   : 77.35%
+  AUC-ROC       : 0.9587  (Excellent)
+  F1 Score      : 91.95%
+  FN (Missed)   : 13 / 390 Pneumonia cases
+=======================================================
+Medical imaging pipeline complete!
+
+
+
+Inference Results on Sample Images:
+-------------------------------------------------------
+  [CORRECT] Actual: NORMAL       Pred: NORMAL       Conf: 96.3%
+  [CORRECT] Actual: NORMAL       Pred: NORMAL       Conf: 80.0%
+  [CORRECT] Actual: NORMAL       Pred: NORMAL       Conf: 51.4%
+  [CORRECT] Actual: PNEUMONIA    Pred: PNEUMONIA    Conf: 99.2%
+  [CORRECT] Actual: PNEUMONIA    Pred: PNEUMONIA    Conf: 99.1%
+  [CORRECT] Actual: PNEUMONIA    Pred: PNEUMONIA    Conf: 100.0%
+-------------------------------------------------------
+
+Pipeline Complete!
+  Model   : ResNet50 fine-tuned on Chest X-Ray
+  Task    : Binary Classification (NORMAL vs PNEUMONIA)
+  AUC-ROC : 0.9587  -> Clinically Excellent
+  FN Rate : 13/390  -> Only 3.33% Pneumonia cases missed
+
+
+=======================================================
+  Grad-CAM Explainability Complete!
+=======================================================
+  Red/Yellow regions = areas model focused on
+  Blue regions       = areas model ignored
+  For PNEUMONIA: model should focus on lung fields
+  For NORMAL   : model should show diffuse attention
+  File saved   : gradcam_explainability.png
+=======================================================
+
+
+=======================================================
+     UPLOAD YOUR CHEST X-RAY IMAGE
+=======================================================
+  Please upload a chest X-ray image...
+  Supported formats: .jpg, .jpeg, .png
+=======================================================
+image 1.jpeg
+image 1.jpeg(image/jpeg) - 5957 bytes, last modified: 3/29/2026 - 100% done
+Saving image 1.jpeg to image 1.jpeg
+
+  File uploaded : image 1.jpeg
+
+
+
+=======================================================
+         DIAGNOSTIC REPORT
+=======================================================
+  Image File    : image 1.jpeg
+  Prediction    : PNEUMONIA
+  Confidence    : 99.89%
+  P(NORMAL)     : 0.11%
+  P(PNEUMONIA)  : 99.89%
+-------------------------------------------------------
+  RESULT        : PNEUMONIA DETECTED
+-------------------------------------------------------
+  CLINICAL NOTE : Pneumonia indicators detected
+                  in the chest X-ray image.
+                  Please consult a radiologist
+                  for further evaluation.
+=======================================================
+  Disclaimer: This is an AI-assisted tool.
+  Always consult a qualified medical professional.
+=======================================================
+
+
+
+
+=================================================================
+        COMPLETE PROJECT REPORT
+   Chest X-Ray Pneumonia Detection using Deep Learning
+=================================================================
+
+OBJECTIVE:
+  Retrain a pretrained ImageNet model to classify medical
+  chest X-ray images into NORMAL vs PNEUMONIA.
+
+=================================================================
+  CELL 1 : Library Installation & Setup
+=================================================================
+
+  Libraries Used:
+  -> torch          : Deep learning framework (PyTorch)
+  -> torchvision    : Pretrained models + image transforms
+  -> matplotlib     : Plotting graphs and images
+  -> numpy          : Numerical computations
+  -> Pillow (PIL)   : Image loading and processing
+  -> scikit-learn   : Medical metrics (AUC, F1, confusion matrix)
+  -> seaborn        : Heatmap visualization
+
+  GPU Detected      : Yes (CUDA)
+  PyTorch Version   : 2.x
+
+=================================================================
+  CELL 2 : Kaggle API Authentication
+=================================================================
+
+  Method            : Colab Secrets (secure) + fallback
+  Secret Keys Used  : KAGGLE_USERNAME, KAGGLE_KEY
+  Config File       : /root/.kaggle/kaggle.json
+  Permission Set    : chmod 600 (secure)
+
+=================================================================
+  CELL 3 : Dataset Download & Extraction
+=================================================================
+
+  Dataset           : Chest X-Ray Images (Pneumonia)
+  Source            : Kaggle - paultimothymooney
+  Dataset Size      : 2.29 GB
+  Format            : ZIP extracted to ./chest_xray/
+  Structure:
+    -> train/NORMAL      : 1,341 images
+    -> train/PNEUMONIA   : 3,875 images
+    -> test/NORMAL       :   234 images
+    -> test/PNEUMONIA    :   390 images
+    -> val/NORMAL        :     8 images
+    -> val/PNEUMONIA     :     8 images
+  Total Images      : 5,856
+
+=================================================================
+  CELL 4 : Data Loading & Augmentation
+=================================================================
+
+  Framework         : torchvision.datasets.ImageFolder
+  Image Size        : 224 x 224 pixels (ResNet standard)
+  Batch Size        : 32
+  Workers           : 2 (parallel loading)
+
+  Train Augmentations (to prevent overfitting):
+  -> RandomHorizontalFlip  : mirrors X-ray horizontally
+  -> RandomRotation(10)    : rotates up to 10 degrees
+  -> ColorJitter           : brightness=0.2, contrast=0.2
+  -> Normalize             : mean=[0.485,0.456,0.406]
+                             std =[0.229,0.224,0.225]
+
+  Val/Test (no augmentation):
+  -> Resize + ToTensor + Normalize only
+
+  Class Imbalance:
+  -> PNEUMONIA cases 3x more than NORMAL
+  -> Handled using class weights in loss function
+
+=================================================================
+  CELL 5 : Pretrained Model Setup
+=================================================================
+
+  Base Model        : ResNet50 (pretrained on ImageNet)
+  Strategy          : Transfer Learning (Head-only fine-tuning)
+  Frozen Layers     : All base layers (23,508,032 params)
+  Trainable Layers  : Custom FC head only (1,116,290 params)
+
+  Custom Head Architecture:
+  -> Linear(2048 -> 512)
+  -> BatchNorm1d(512)
+  -> ReLU()
+  -> Dropout(p=0.4)        [prevents overfitting]
+  -> Linear(512 -> 128)
+  -> BatchNorm1d(128)
+  -> ReLU()
+  -> Dropout(p=0.3)        [prevents overfitting]
+  -> Linear(128 -> 2)      [NORMAL vs PNEUMONIA]
+
+  Total Parameters  : 24,624,322
+  Trainable Params  : 1,116,290  (only 4.5% trained)
+  Frozen Params     : 23,508,032 (95.5% frozen)
+
+=================================================================
+  CELL 6 : Loss Function, Optimizer & Scheduler
+=================================================================
+
+  Loss Function     : CrossEntropyLoss (weighted)
+  Class Weights:
+  -> NORMAL weight     : 1.9448  (minority boosted)
+  -> PNEUMONIA weight  : 0.6730  (majority reduced)
+  Reason            : 3x class imbalance correction
+
+  Optimizer         : Adam
+  -> Learning Rate  : 1e-3
+  -> Weight Decay   : 1e-4  (L2 regularization)
+  -> Parameters     : Only FC head (frozen base excluded)
+
+  Scheduler         : ReduceLROnPlateau
+  -> Mode           : min (monitors val loss)
+  -> Factor         : 0.5  (halves LR on plateau)
+  -> Patience       : 2    (waits 2 epochs before reducing)
+
+=================================================================
+  CELL 7 : Training Loop
+=================================================================
+
+  Max Epochs        : 20
+  Early Stopping    : Yes (patience=5)
+  Actual Epochs Run : 8  (early stop at epoch 8)
+  Best Epoch        : 6
+
+  Epoch-wise Results:
+  Epoch  Train Loss  Train Acc  Val Loss  Val Acc
+  ------------------------------------------------
+    1      0.2064     91.28%     0.4969    81.25%
+    2      0.1658     93.58%     0.3439    87.50%  *saved
+    3      0.1547     93.81%     0.9281    68.75%
+    4      0.1417     94.67%     0.5838    87.50%
+    5      0.1411     94.40%     0.3848    87.50%
+    6      0.1386     94.42%     0.2993    93.75%  *best
+    7      0.1282     94.96%     0.3228    81.25%
+    8      0.1162     95.42%     0.5623    81.25%
+  ------------------------------------------------
+  Early stop triggered at epoch 8
+  Best Val Loss     : 0.2993
+  Best Val Acc      : 93.75%
+
+=================================================================
+  CELL 8 : Test Set Evaluation - Medical Metrics
+=================================================================
+
+  Test Samples      : 624
+  -> NORMAL         : 234
+  -> PNEUMONIA      : 390
+
+  MEDICAL METRICS:
+  +-----------------------+----------+
+  | Metric                | Score    |
+  +-----------------------+----------+
+  | Accuracy              | 89.42%   |
+  | Precision             | 87.67%   |
+  | Recall (Sensitivity)  | 96.67%   |  <- Most Critical
+  | Specificity           | 77.35%   |
+  | F1 Score              | 91.95%   |
+  | AUC-ROC               | 0.9587   |  <- Excellent
+  +-----------------------+----------+
+
+  Confusion Matrix:
+  +------------------+--------+-----------+
+  |                  | Pred N | Pred P    |
+  +------------------+--------+-----------+
+  | Actual NORMAL    | TN=181 | FP=53     |
+  | Actual PNEUMONIA | FN=13  | TP=377    |
+  +------------------+--------+-----------+
+
+  FN = 13  -> Only 13 Pneumonia cases missed (3.33%)
+  Plots     : Confusion Matrix + ROC Curve saved
+
+=================================================================
+  CELL 9 : Training Curves + Sample Predictions
+=================================================================
+
+  Plots Generated:
+  -> Loss Curve     : Train vs Val loss per epoch
+  -> Accuracy Curve : Train vs Val accuracy per epoch
+  -> Sample Grid    : 18 test predictions
+                      (3 rows x 6 cols)
+                      Green border = Correct prediction
+                      Red border   = Wrong prediction
+  Files Saved:
+  -> training_curves.png
+  -> sample_predictions.png
+
+=================================================================
+  CELL 10 : Model Save + Inference Demo
+=================================================================
+
+  Files Saved:
+  -> pneumonia_detector_final.pth  (full model + metadata)
+  -> best_model.pth                (best val loss weights)
+  -> medical_report.json           (all metrics as JSON)
+
+  Inference Demo    : 6 sample images (3N + 3P)
+  Results:
+  -> NORMAL     96.3%  CORRECT
+  -> NORMAL     80.0%  CORRECT
+  -> NORMAL     51.4%  CORRECT
+  -> PNEUMONIA  99.2%  CORRECT
+  -> PNEUMONIA  99.1%  CORRECT
+  -> PNEUMONIA 100.0%  CORRECT
+  Accuracy on demo  : 6/6 = 100%
+
+=================================================================
+  CELL 11 : Grad-CAM Medical Explainability
+=================================================================
+
+  Technique         : Gradient-weighted Class Activation Map
+  Target Layer      : model.layer4[-1] (last conv layer)
+  Images Tested     : 4 (2 NORMAL + 2 PNEUMONIA)
+  Views per Image   : 3
+  -> Original X-Ray
+  -> Grad-CAM Heatmap overlay
+  -> Combined overlay
+
+  Interpretation:
+  -> Red/Yellow = regions model focused on
+  -> Blue       = regions model ignored
+  -> PNEUMONIA  : model focuses on lung infection areas
+  -> NORMAL     : diffuse/uniform attention
+  File Saved        : gradcam_explainability.png
+
+=================================================================
+  CELL 12 : Upload & Predict Your Own Image
+=================================================================
+
+  Method            : google.colab.files.upload()
+  Formats Supported : .jpg, .jpeg, .png
+  Output:
+  -> Chest X-ray display with colored border
+  -> Probability bar chart (NORMAL vs PNEUMONIA)
+  -> Confidence score
+  -> Clinical diagnostic note
+  -> Medical disclaimer
+
+=================================================================
+  FINAL MODEL PERFORMANCE SUMMARY
+=================================================================
+
+  +---------------------------+------------------+
+  | Property                  | Value            |
+  +---------------------------+------------------+
+  | Base Model                | ResNet50         |
+  | Pretrained On             | ImageNet         |
+  | Fine-tuning Strategy      | Head-only        |
+  | Dataset                   | Chest X-Ray 5856 |
+  | Training Epochs           | 8 (early stop)   |
+  | Test Accuracy             | 89.42%           |
+  | Sensitivity (Recall)      | 96.67%           |
+  | Specificity               | 77.35%           |
+  | F1 Score                  | 91.95%           |
+  | AUC-ROC                   | 0.9587           |
+  | Missed Pneumonia (FN)     | 13 / 390 (3.33%) |
+  | Overfitting               | None detected    |
+  | Explainability            | Grad-CAM         |
+  +---------------------------+------------------+
+
+=================================================================
+  TECHNOLOGIES USED
+=================================================================
+
+  -> Python          : Core language
+  -> PyTorch         : Model training & inference
+  -> Torchvision     : ResNet50 + transforms
+  -> Kaggle API      : Dataset download
+  -> Scikit-learn    : Medical metrics
+  -> Matplotlib      : All visualizations
+  -> Seaborn         : Confusion matrix heatmap
+  -> NumPy           : Array operations
+  -> Pillow (PIL)    : Image loading
+  -> Google Colab    : Cloud GPU (T4/A100)
+  -> Grad-CAM        : Model explainability
+
+=================================================================
+  PROJECT COMPLETE!
+=================================================================
