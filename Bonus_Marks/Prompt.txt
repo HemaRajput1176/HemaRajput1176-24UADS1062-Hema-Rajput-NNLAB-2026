@@ -1,0 +1,17 @@
+I have a leaf image dataset from my college campus MBMU 
+Images are grayscale and sorted in folders by plant species I need to make a complete Python notebook on Kaggle for my mini project.
+I need that you should check 
+GPU, install libraries
+Load dataset and show images and species count
+Augment images to make dataset of 4000 images using flips, rotations, blur etc.
+Do self supervised learning using SimCLR method with ResNet-18 model — but don't use pixel reconstruction loss, use contrastive loss (NT-Xent)
+After SSL training, freeze the encoder and train only a small classifier on top to classify leaf species
+Show accuracy, confusion matrix and classification report on test data
+Save everything in a zip file"
+
+Now also add a bonus part where I check if my model works in different seasons. I don't have real seasonal data so just simulate it using image transforms like
+Summer = normal image
+Spring = more sharp and bright
+Autumn = blurry and low contrast
+Winter = very blurry and dark
+Test my trained model on all 4 seasons and show accuracy bar chart, heatmap and confusion matrix for each season"
