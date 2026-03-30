@@ -1,0 +1,9 @@
+I have a medical image dataset. Write a Google Colab code to retrain a pretrained ImageNet model on it for classification.
+Steps to follow
+Import all libraries
+Load and preprocess the dataset with augmentation
+Load pretrained model (like ResNet) and change last layer for my classes
+Train the model and show loss and accuracy
+Plot training graphs
+Show confusion matrix and classification report
+Test on some sample images"
