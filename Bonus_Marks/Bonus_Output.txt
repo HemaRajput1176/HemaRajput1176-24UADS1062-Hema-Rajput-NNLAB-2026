@@ -1,0 +1,131 @@
+Device         : cuda
+Augment folder : True
+FT checkpoint  : True
+
+ Model classes defined
+
+Model loaded successfully
+  Classes (10): ['Ashok', 'Jamun', 'LilyNagdamani', 'MadagascarSadabhar', 'Mango', 'Neem', 'banana', 'blackboard', 'gulmohar', 'paper_flower']
+  Dataset total  : 3,180
+  Test split     : 477 images
+
+Season transforms defined:
+    Summer (baseline)
+    Spring (sharp + high contrast)
+    Autumn (soft + low contrast)
+    Winter (blurry + dim)
+
+=================================================================
+  Cross-Season Accuracy Evaluation
+=================================================================
+  Summer (baseline)                       75.68%  [██████████████████████░░░░░░░░]  (reference)
+  Spring (sharp + high contrast)          48.64%  [██████████████░░░░░░░░░░░░░░░░]  (drop: -27.04%)
+  Autumn (soft + low contrast)            62.68%  [██████████████████░░░░░░░░░░░░]  (drop: -13.00%)
+  Winter (blurry + dim)                   17.19%  [█████░░░░░░░░░░░░░░░░░░░░░░░░░]  (drop: -58.49%)
+
+  Best  : Summer (baseline)
+  Worst : Winter (blurry + dim)
+  Max accuracy drop : -58.49%
+
+ Most robust species (least accuracy drop across seasons):
+    Jamun                                     max drop: 18.6%
+    Mango                                     max drop: 37.0%
+    gulmohar                                  max drop: 44.0%
+
+  Most affected species:
+    paper_flower                              max drop: 84.4%
+    banana                                    max drop: 79.5%
+    LilyNagdamani                             max drop: 75.0%
+
+=================================================================
+  Summer (baseline)   —   Accuracy: 75.68%
+=================================================================
+                    precision    recall  f1-score   support
+
+             Ashok      0.912     0.897     0.904        58
+             Jamun      0.750     0.698     0.723        43
+     LilyNagdamani      0.630     0.767     0.692        60
+MadagascarSadabhar      0.750     0.621     0.679        58
+             Mango      0.720     0.783     0.750        46
+              Neem      0.763     0.690     0.725        42
+            banana      0.681     0.821     0.744        39
+        blackboard      0.718     0.778     0.747        36
+          gulmohar      0.919     0.680     0.782        50
+      paper_flower      0.792     0.844     0.817        45
+
+          accuracy                          0.757       477
+         macro avg      0.763     0.758     0.756       477
+      weighted avg      0.766     0.757     0.757       477
+
+
+=================================================================
+  Spring (sharp + high contrast)   —   Accuracy: 48.64%
+=================================================================
+                    precision    recall  f1-score   support
+
+             Ashok      0.889     0.690     0.777        58
+             Jamun      0.595     0.512     0.550        43
+     LilyNagdamani      0.390     0.800     0.525        60
+MadagascarSadabhar      0.309     0.500     0.382        58
+             Mango      0.605     0.565     0.584        46
+              Neem      0.600     0.143     0.231        42
+            banana      0.402     0.897     0.556        39
+        blackboard      0.692     0.250     0.367        36
+          gulmohar      0.722     0.260     0.382        50
+      paper_flower      0.571     0.089     0.154        45
+
+          accuracy                          0.486       477
+         macro avg      0.578     0.471     0.451       477
+      weighted avg      0.574     0.486     0.461       477
+
+
+=================================================================
+  Autumn (soft + low contrast)   —   Accuracy: 62.68%
+=================================================================
+                    precision    recall  f1-score   support
+
+             Ashok      0.828     0.914     0.869        58
+             Jamun      0.491     0.651     0.560        43
+     LilyNagdamani      0.565     0.650     0.605        60
+MadagascarSadabhar      0.651     0.483     0.554        58
+             Mango      0.514     0.826     0.633        46
+              Neem      0.800     0.571     0.667        42
+            banana      0.658     0.641     0.649        39
+        blackboard      0.500     0.444     0.471        36
+          gulmohar      0.958     0.460     0.622        50
+      paper_flower      0.543     0.556     0.549        45
+
+          accuracy                          0.627       477
+         macro avg      0.651     0.620     0.618       477
+      weighted avg      0.658     0.627     0.625       477
+
+
+=================================================================
+  Winter (blurry + dim)   —   Accuracy: 17.19%
+=================================================================
+                    precision    recall  f1-score   support
+
+             Ashok      0.682     0.259     0.375        58
+             Jamun      0.107     0.535     0.178        43
+     LilyNagdamani      0.500     0.017     0.032        60
+MadagascarSadabhar      0.143     0.034     0.056        58
+             Mango      0.250     0.413     0.311        46
+              Neem      0.057     0.048     0.052        42
+            banana      0.059     0.026     0.036        39
+        blackboard      0.200     0.194     0.197        36
+          gulmohar      0.364     0.240     0.289        50
+      paper_flower      0.000     0.000     0.000        45
+
+          accuracy                          0.172       477
+         macro avg      0.236     0.177     0.153       477
+      weighted avg      0.260     0.172     0.155       477
+
+
+ bonus/season_visual_comparison.png                    816.2 KB
+  bonus/cross_season_accuracy.png                        56.3 KB
+  bonus/per_class_season_heatmap.png                    104.2 KB
+  bonus/season_confusion_matrices.png                   188.2 KB
+  bonus/season_radar_chart.png                          243.4 KB
+  bonus/cross_season_comment.txt                          3.5 KB
+
+  ZIP saved: /kaggle/working/bonus_cross_season_results.zip
